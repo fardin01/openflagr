@@ -3,7 +3,6 @@ package notify
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"math"
 	"net/http"
 	"time"
@@ -138,7 +137,7 @@ func (c *Client) Do(req *Request) (*http.Response, error) {
 
 func (c *Client) drainBody(body io.ReadCloser) {
 	defer body.Close()
-	_, err := io.Copy(ioutil.Discard, io.LimitReader(body, respReadLimit))
+	_, err := io.Copy(io.Discard, io.LimitReader(body, respReadLimit))
 	if err != nil {
 		fmt.Printf("error reading response body: %v", err)
 	}
@@ -154,7 +153,7 @@ type Request struct {
 func NewRequest(method, url string, body io.ReadSeeker) (*Request, error) {
 	var rcBody io.ReadCloser
 	if body != nil {
-		rcBody = ioutil.NopCloser(body)
+		rcBody = io.NopCloser(body)
 	}
 
 	httpReq, err := http.NewRequest(method, url, rcBody)

@@ -2,7 +2,7 @@ package notify
 
 import (
 	"bytes"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"testing"
 
@@ -20,7 +20,7 @@ func TestWebhookSendsRequest(t *testing.T) {
 			return &http.Response{
 				StatusCode: 200,
 				// Send response to be tested
-				Body: ioutil.NopCloser(bytes.NewBufferString(`OK`)),
+				Body: io.NopCloser(bytes.NewBufferString(`OK`)),
 				// Must be set to non-nil value or it panics
 				Header: make(http.Header),
 			}
@@ -40,7 +40,7 @@ func TestWebhookSendsRequest(t *testing.T) {
 			return &http.Response{
 				StatusCode: 500,
 				// Send response to be tested
-				Body: ioutil.NopCloser(bytes.NewBufferString(`NOT OK`)),
+				Body: io.NopCloser(bytes.NewBufferString(`NOT OK`)),
 				// Must be set to non-nil value or it panics
 				Header: make(http.Header),
 			}
