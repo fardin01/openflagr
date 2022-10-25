@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
 
 jobs:
@@ -20,13 +20,13 @@ jobs:
       - run: make verify_swagger_nochange
       - run: make ci
       - run: make benchmark
-      - uses: codecov/codecov-action@v2
+      # - uses: codecov/codecov-action@v2
   ui_lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: "16"
       - name: Check out source code
         uses: actions/checkout@v1
       - run: cd browser/flagr-ui && npm install
@@ -51,3 +51,10 @@ jobs:
       - name: Check workflow files
         run: ${{ steps.get_actionlint.outputs.executable }} -color
         shell: bash
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: tradeshift/actions-docker@v1
+        with:
+          push: false

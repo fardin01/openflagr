@@ -8,7 +8,7 @@ require (
 	github.com/Shopify/sarama v1.29.1
 	github.com/a8m/kinesis-producer v0.0.0-20180723062609-03228a9f79b3
 	github.com/auth0/go-jwt-middleware v1.0.2-0.20210804140707-b4090e955b98
-	github.com/avast/retry-go v2.2.0+incompatible
+	github.com/avast/retry-go v3.0.0+incompatible
 	github.com/aws/aws-sdk-go v1.34.28
 	github.com/brandur/simplebox v0.0.0-20150921201729-84e9865bb03a
 	github.com/bsm/ratelimit v2.0.0+incompatible
@@ -110,7 +110,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/common v0.2.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
-	go.mongodb.org/mongo-driver v1.7.5 // indirect
+	go.mongodb.org/mongo-driver v1.9.1 // indirect
 	go.opencensus.io v0.20.1 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/oauth2 v0.0.0-20190226205417-e64efc72b421 // indirect

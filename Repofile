@@ -1,0 +1,6 @@
+{
+  "checks": [
+    "docker",
+    "integration_test"
+  ]
+}
