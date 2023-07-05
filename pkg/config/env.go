@@ -203,6 +203,8 @@ var Config = struct {
 	// Identify users through headers
 	HeaderAuthEnabled   bool   `env:"FLAGR_HEADER_AUTH_ENABLED" envDefault:"false"`
 	HeaderAuthUserField string `env:"FLAGR_HEADER_AUTH_USER_FIELD" envDefault:"X-Email"`
+	// For those situations where ALB is in front of Flagr. Enabling this will parse x-amzn-oidc-data header.
+	HeaderAuthUserFieldAwsAlb bool `env:"FLAGR_HEADER_AUTH_USER_FIELD_AWS_ALB" envDefault:"false"`
 
 	// Authenticate with basic auth
 	BasicAuthEnabled              bool     `env:"FLAGR_BASIC_AUTH_ENABLED" envDefault:"false"`
