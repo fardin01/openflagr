@@ -9,10 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - run: echo "RELEASE_VERSION=${GITHUB_REF:10}" >> "$GITHUB_ENV"
     - uses: tradeshift/actions-docker@v1
       with:
-        password: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY_NOBASE64 }}
-        useqemu: true
+        repository: 063399264027.dkr.ecr.eu-west-1.amazonaws.com/tradeshift-base/openflagr
         platform: linux/amd64,linux/arm64
+        aws-access-key-id: ${{ secrets.ECR_AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.ECR_AWS_SECRET_ACCESS_KEY }}
